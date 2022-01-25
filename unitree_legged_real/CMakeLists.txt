@@ -15,13 +15,14 @@ include_directories(
     include
     ${Boost_INCLUDE_DIR}
     ${catkin_INCLUDE_DIRS}
+    $ENV{UNITREE_LEGGED_SDK_PATH}/include
 )
 
 set(CMAKE_CXX_FLAGS "-O3")
 
-include_directories(/home/bian/Robot_SDK/unitree_legged_sdk/include)
-link_directories(/home/bian/Robot_SDK/unitree_legged_sdk/lib)
-string(CONCAT LEGGED_SDK_NAME libunitree_legged_sdk.so)
+include_directories($ENV{UNITREE_LEGGED_SDK_PATH}/include)
+link_directories($ENV{UNITREE_LEGGED_SDK_PATH}/lib)
+string(CONCAT LEGGED_SDK_NAME libunitree_legged_sdk_$ENV{UNITREE_PLATFORM}.so)
 set(EXTRA_LIBS ${LEGGED_SDK_NAME} lcm)
 
 add_executable(lcm_server /home/bian/Robot_SDK/unitree_legged_sdk/examples/lcm_server.cpp)
