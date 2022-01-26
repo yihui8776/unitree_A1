@@ -65,7 +65,7 @@ unitree_legged_msgs::IMU ToRos(UNITREE_LEGGED_SDK::IMU& lcm)
     ros.accelerometer[0] = lcm.accelerometer[0];
     ros.accelerometer[1] = lcm.accelerometer[1];
     ros.accelerometer[2] = lcm.accelerometer[2];
-    ros.temperature = lcm.temperature;
+    //ros.temperature = lcm.temperature;
     return ros;
 }
 
@@ -80,7 +80,7 @@ unitree_legged_msgs::MotorState ToRos(UNITREE_LEGGED_SDK::MotorState& lcm)
     ros.q_raw = lcm.q_raw;
     ros.dq_raw = lcm.dq_raw;
     ros.ddq_raw = lcm.ddq_raw;
-    ros.temperature = lcm.temperature;
+    //ros.temperature = lcm.temperature;
     ros.reserve[0] = lcm.reserve[0];
     ros.reserve[1] = lcm.reserve[1];
     return ros;
@@ -178,9 +178,9 @@ unitree_legged_msgs::HighState ToRos(UNITREE_LEGGED_SDK::HighState& lcm)
         ros.footForceEst[i] = lcm.footForceEst[i];
     }
 
-    for(int i(0); i<20; ++i){
-        ros.temperature[i] = lcm.temperature[i];
-    }
+//    for(int i(0); i<20; ++i){
+//        ros.temperature[i] = lcm.temperature[i];
+//    }
 
     for(int i(0); i<40; ++i){
         ros.wirelessRemote[i] = lcm.wirelessRemote[i];
