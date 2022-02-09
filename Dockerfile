@@ -18,7 +18,9 @@ RUN apt-get update \
 		ros-melodic-desktop-full \
 		ros-melodic-controller-interface ros-melodic-gazebo-ros-control \
 		ros-melodic-joint-state-controller ros-melodic-effort-controllers \
-		ros-melodic-joint-trajectory-controller \
+		ros-melodic-joint-trajectory-controller ros-melodic-robot \
+		ros-melodic-robot-state-publisher ros-melodic-joint-state-publisher-gui \
+		ros-melodic-rviz \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Install other dependencies
@@ -81,7 +83,7 @@ RUN mkdir -p /root/catkin_ws/src/ \
 	#&& git clone https://github.com/unitreerobotics/unitree_ros.git \
 	&& git clone -b master  https://github.com/yihui8776/unitree_A1.git unitree_ros\
 	&& cd unitree_ros \
-	&& sed -i "s|/home/[^/]\+/|$HOME/|g" unitree_gazebo/worlds/stairs.world \
+	&& sed -i "s|/home/[^/]\+/|/root/catkin_ws/|g" unitree_gazebo/worlds/stairs.world \
     #&& /bin/bash -c 'source $HOME/unitree_entrypoint.bash' \
 	&& cd /root/catkin_ws \
 	#&& catkin_make
