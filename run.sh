@@ -1,1 +1,1 @@
-docker run -itd --network=host -p 5901:5901 -p 6901:6901 -v /mnt/e/workspace/ros/unitree_ros:/root/catkin_ws/src/unitree_ros --name unitree yihui8776/unitree:v1 /bin/bash
+docker run -itd --network=host -p 5902:5901 -p 6902:6901 -v /mnt/e/workspace/ros/unitree_A1:/root/catkin_ws/src/unitree_ros --name unitree yihui8776/unitreea1:v2 /bin/bash
